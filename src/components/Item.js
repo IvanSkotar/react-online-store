@@ -1,22 +1,33 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addToCart } from '../actions/shopActions'
 
-function Item () {
+function Item (props) {
   return (
     <div className="col mb-4">
       <div className="card">
         <img
-          src="https://lh3.googleusercontent.com/8I34O2iIvIgalfXnpIO2QH2e15a4eZbJtFsnMsmiXev6efKohqj9fuw2LfGXa08s0AznOE-kFw=w440-h280-e365"
-          className="card-img-top"
-          alt="..."/>
+          src={props.product.image}
+          className="card-img-top p-1"
+          alt={props.product.title}/>
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
+          <h5 className="card-title">{props.product.title}</h5>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="#" className="btn btn-primary">Add to Cart</a>
+          <button
+            className="btn btn-primary mr-5"
+            onClick={() => props.addToCart(props.product.id)}>
+            Add to Cart
+          </button>
+          $ {props.product.price}
         </div>
       </div>
     </div>
   )
 }
 
-export default Item
+const mapDispatchToProps = dispatch => ({
+  addToCart: (id) => dispatch(addToCart(id))
+})
+
+export default connect(null, mapDispatchToProps)(Item)
