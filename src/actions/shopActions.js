@@ -1,4 +1,4 @@
-export const setOne = () => ({
-  type: '1',
-  payload: 1
+export const addToCart = (id) => ({
+  type: 'ADD_TO_CART',
+  payload: id
 })

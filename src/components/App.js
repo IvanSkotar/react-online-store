@@ -8,7 +8,7 @@ function App() {
     <div className=''>
       <Header/>
         <ItemsList/>
-]      <Footer/>
+      <Footer/>
     </div>
   );
 }

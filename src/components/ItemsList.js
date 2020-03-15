@@ -13,9 +13,9 @@ function ItemsList (props) {
   )
 }
 
-const mapStoreToProps = (store) => {
+const mapStoreToProps = state => {
   let arr = []
-  Object.values(store.shop.products).map(el => arr.push(...el))
+  Object.values(state.shop.products).map(el => arr.push(...el))
   return {
     allProducts: arr
   }

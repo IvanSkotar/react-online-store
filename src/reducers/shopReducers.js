@@ -1,12 +1,24 @@
-const initialState = {data: null}
+import { products } from '../assets/products'
 
-const shop = (state = initialState, action) => {
+const shop = (state = {
+  products: products,
+  cart: []
+}, action) => {
 
   switch (action.type) {
-    case '1':
+    case 'ADD_TO_CART':
+      let newItem;
+      Object.values(state.products).map(el => el.map(item => {
+        if(item.id === action.payload){
+          newItem = item
+        }
+      }))
       return {
         ...state,
-        data: 1
+        cart: [
+          ...state.cart,
+          newItem
+        ]
       }
 
     default:
