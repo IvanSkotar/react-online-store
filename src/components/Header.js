@@ -7,12 +7,12 @@ function Header (props) {
       <div className="container">
         <a className="navbar-brand text-light" href="#">
           <img
-            src="https://getbootstrap.com//docs/4.4/assets/brand/bootstrap-solid.svg"
+            src="https://www.iconninja.com/files/363/808/983/apple-icon.png"
             width="30"
             height="30"
             className="d-inline-block align-top mr-3"
             alt=""/>
-          Bootstrap
+          Mac Store
         </a>
         <button type="button" className="btn btn-default btn-lg text-light">
           {props.itemsInCart}

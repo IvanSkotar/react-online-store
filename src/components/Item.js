@@ -16,7 +16,7 @@ function Item (props) {
             content.</p>
           <button
             className="btn btn-primary mr-5"
-            onClick={() => props.addToCart(props.product.id)}>
+            onClick={() => {props.addToCart({...props.product, count: 1})}}>
             Add to Cart
           </button>
           $ {props.product.price}
@@ -27,7 +27,7 @@ function Item (props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addToCart: (id) => dispatch(addToCart(id))
+  addToCart: (item) => dispatch(addToCart(item))
 })
 
 export default connect(null, mapDispatchToProps)(Item)

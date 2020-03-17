@@ -1,24 +1,27 @@
 import { products } from '../assets/products'
 
-const shop = (state = {
+const initialState = {
   products: products,
   cart: []
-}, action) => {
+}
+
+const shop = (state = initialState, action) => {
 
   switch (action.type) {
     case 'ADD_TO_CART':
-      let newItem;
-      Object.values(state.products).map(el => el.map(item => {
-        if(item.id === action.payload){
-          newItem = item
-        }
-      }))
+      const exist = state.cart.filter(el => el.id === action.payload.id)
+
       return {
         ...state,
-        cart: [
-          ...state.cart,
-          newItem
-        ]
+        cart: (() => {
+          if(exist.length > 0){
+            return state.cart.map(el => {
+              if(el.id === action.payload.id) return {...el, count: el.count + 1}
+              return el
+            })
+          }
+          return [...state.cart, action.payload]
+        })()
       }
 
     default:
