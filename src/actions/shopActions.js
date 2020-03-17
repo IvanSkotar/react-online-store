@@ -3,14 +3,14 @@ export const addToCart = (item) => ({
   payload: item
 })
 
-export const cartItemCountDown = (id) => ({
+export const cartItemCountDown = (item) => ({
   type: 'CART_COUNT_ITEM_DOWN',
-  payload: id
+  payload: item
 })
 
-export const cartItemCountUp = (id) => ({
+export const cartItemCountUp = (item) => ({
   type: 'CART_COUNT_ITEM_UP',
-  payload: id
+  payload: item
 })
 
 export const removeItemFromCart = (id) => ({

@@ -1,9 +1,8 @@
 import { products } from '../assets/products'
 
-
 const initialState = {
   products: products,
-  cart: []
+  cart: [],
 }
 
 const shop = (state = initialState, action) => {
@@ -14,13 +13,13 @@ const shop = (state = initialState, action) => {
         ...state,
         cart: (() => {
           const exist = state.cart.filter(el => el.id === action.payload.id)
-          if(exist.length > 0){
+          if (exist.length > 0) {
             return state.cart.map(el => {
-              if(el.id === action.payload.id) return {...el, count: el.count + 1}
+              if (el.id === action.payload.id) return { ...el, count: el.count + 1, sum: el.sum + action.payload.price }
               return el
             })
           }
-          return [...state.cart, action.payload]
+          return [...state.cart, { ...action.payload, sum: action.payload.price }]
         })()
       }
 
@@ -28,18 +27,18 @@ const shop = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.map(el => {
-              if(el.id === action.payload){
-                if(el.count > 1) return {...el, count: el.count - 1}
-              }
-              return el
-            })
+          if (el.id === action.payload.id) {
+            if (el.count > 1) return { ...el, count: el.count - 1, sum: el.sum - action.payload.price }
+          }
+          return el
+        })
       }
 
     case 'CART_COUNT_ITEM_UP':
       return {
         ...state,
         cart: state.cart.map(el => {
-          if(el.id === action.payload) return {...el, count: el.count + 1}
+          if (el.id === action.payload.id) return { ...el, count: el.count + 1, sum: el.sum + action.payload.price }
           return el
         })
       }
@@ -51,8 +50,8 @@ const shop = (state = initialState, action) => {
       }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default shop;
+export default shop

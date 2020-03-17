@@ -1,9 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import { cartItemCountDown, cartItemCountUp, removeItemFromCart } from '../actions/shopActions'
 
-
-function CartItem({product, countDown, countUp, removeItem}) {
+function CartItem ({ product, countDown, countUp, removeItem }) {
 
   return (
     <div className="card mb-3">
@@ -19,23 +18,24 @@ function CartItem({product, countDown, countUp, removeItem}) {
           </div>
         </div>
         <div className="col-md-2 text-right m-3">
-          $ {product.price}
+          <div>Price: $ {product.price}</div>
+          <div>Total: $ {product.sum}</div>
           <div className='mt-3 mb-3'>
-            <button className="btn btn-info btn-sm mr-2" onClick={() => countDown(product.id)}> - </button>
+            <button className="btn btn-info btn-sm mr-2" onClick={() => countDown(product)}> - </button>
             {product.count}
-            <button className="btn btn-info btn-sm ml-2" onClick={() => countUp(product.id)}> + </button>
+            <button className="btn btn-info btn-sm ml-2" onClick={() => countUp(product)}> + </button>
           </div>
-          <button className="btn btn-danger btn-sm ml-2" onClick={() => removeItem(product.id)}>Remove</button>
+          <button className="btn btn-danger btn-sm ml-2" onClick={() => removeItem(product.id)}> Remove </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const mapDispatchToProps = dispatch => ({
-  countDown: (id) => dispatch(cartItemCountDown(id)),
-  countUp: (id) => dispatch(cartItemCountUp(id)),
+  countDown: (item) => dispatch(cartItemCountDown(item)),
+  countUp: (item) => dispatch(cartItemCountUp(item)),
   removeItem: (id) => dispatch(removeItemFromCart(id))
 })
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(CartItem)

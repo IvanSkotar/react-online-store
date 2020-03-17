@@ -1,18 +1,13 @@
-import React from 'react';
+import React from 'react'
 import CartItem from './CartItem'
-import { connect } from 'react-redux'
 
-
-function Cart({list}) {
+function Cart ({ list, totalSumm }) {
   return (
     <div>
       {list.map(el => <CartItem product={el}/>)}
+      <div className=''>Total: $ {totalSumm}</div>
     </div>
-  );
+  )
 }
 
-const mapStoreToProps = state => ({
-  list: state.shop.cart
-})
-
-export default connect(mapStoreToProps)(Cart);
+export default Cart

@@ -4,20 +4,26 @@ import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-
-function App () {
+function App ({ list, itemsInCart, totalSumm }) {
   return (
     <Router>
       <div className=''>
-        <Header/>
+        <Header
+          totalSumm={totalSumm}
+          itemsInCart={itemsInCart}
+        />
         <div className="container">
           <Switch>
             <Route path="/products">
               <ItemsList/>
             </Route>
             <Route path="/cart">
-              <Cart />
+              <Cart
+                totalSumm={totalSumm}
+                list={list}
+              />
             </Route>
           </Switch>
         </div>
@@ -27,7 +33,17 @@ function App () {
   )
 }
 
-export default App
+const mapStateToProps = state => ({
+  list: state.shop.cart,
+  itemsInCart: state.shop.cart.length,
+  totalSumm: (() => {
+    let sum = 0
+    state.shop.cart.forEach(el => sum += el.sum)
+    return sum
+  })()
+})
+
+export default connect(mapStateToProps)(App)
 
 
 
