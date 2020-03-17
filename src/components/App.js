@@ -4,6 +4,7 @@ import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
 
+
 function App () {
   return (
     <div className=''>

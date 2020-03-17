@@ -2,10 +2,11 @@ import React from 'react';
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
 
-function Cart(props) {
+
+function Cart({list}) {
   return (
     <div>
-      {props.list.map(el => <CartItem item={el}/>)}
+      {list.map(el => <CartItem product={el}/>)}
     </div>
   );
 }
