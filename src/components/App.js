@@ -3,19 +3,31 @@ import Header from './Header'
 import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 function App () {
   return (
-    <div className=''>
-      <Header/>
-      <div className="container">
-        <ItemsList/>
-        <Cart/>
+    <Router>
+      <div className=''>
+        <Header/>
+        <div className="container">
+          <Switch>
+            <Route path="/products">
+              <ItemsList/>
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+          </Switch>
+        </div>
+        <Footer/>
       </div>
-      <Footer/>
-    </div>
+    </Router>
   )
 }
 
 export default App
+
+
+
