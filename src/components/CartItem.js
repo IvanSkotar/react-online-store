@@ -21,9 +21,9 @@ function CartItem ({ product, countDown, countUp, removeItem }) {
           <div>Price: $ {product.price}</div>
           <div>Total: $ {product.sum}</div>
           <div className='mt-3 mb-3'>
-            <button className="btn btn-info btn-sm mr-2" onClick={() => countDown(product)}> - </button>
+            <button className="btn btn-secondary btn-sm mr-2" onClick={() => countDown(product)}> - </button>
             {product.count}
-            <button className="btn btn-info btn-sm ml-2" onClick={() => countUp(product)}> + </button>
+            <button className="btn btn-secondary btn-sm ml-2" onClick={() => countUp(product)}> + </button>
           </div>
           <button className="btn btn-danger btn-sm ml-2" onClick={() => removeItem(product.id)}> Remove </button>
         </div>
