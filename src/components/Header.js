@@ -18,7 +18,7 @@ function Header ({ itemsInCart, totalSumm }) {
         <Link to='/cart' type="button" className="btn btn-default btn-lg text-light">
           {itemsInCart}
           <i className='fab fa-opencart mr-3 ml-3'/>
-          $ {totalSumm}
+          $ {totalSumm.toFixed(2)}
         </Link>
       </div>
     </nav>

@@ -14,9 +14,9 @@ function OrderItem ({ product }) {
           </div>
         </div>
         <div className="col-md-3 p-2 text-right">
-          <div>Price: $ {product.price}</div>
+          <div>Price: $ {product.price.toFixed(2)}</div>
           <div>Count: {product.count}</div>
-          <div>Total: $ {product.sum}</div>
+          <div>Total: $ {product.sum.toFixed(2)}</div>
         </div>
       </div>
     </div>
