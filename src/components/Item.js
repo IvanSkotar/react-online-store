@@ -20,7 +20,7 @@ function Item ({ product, addToCart }) {
             Add to Cart
           </button>
           <h4 className='d-inline'>
-            <span className='badge badge-light'>$ {product.price.toFixed(2)}</span>
+            <span className='badge badge-light'>$ {product.price}</span>
           </h4>
         </div>
       </div>
