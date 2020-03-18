@@ -8,7 +8,9 @@ import { connect } from 'react-redux'
 import ShipingDetails from './ShipingDetails'
 import Checkout from './Checkout'
 
+
 function App ({ list, itemsInCart, totalSumm }) {
+
   return (
     <Router>
       <div className=''>
