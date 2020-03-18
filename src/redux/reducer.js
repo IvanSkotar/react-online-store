@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import shop from '../reducers/shopReducers'
+import shop from '../reducers/shopReducer'
 
 export const reducer = combineReducers({ shop });
 

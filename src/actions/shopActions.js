@@ -17,3 +17,8 @@ export const removeItemFromCart = (id) => ({
   type: 'REMOVE_ITEM_FROM_CART',
   payload: id
 })
+
+export const saveShippingDetails = (info) => ({
+  type: 'SAVE_SHIPPING_DETAILS',
+  payload: info
+})

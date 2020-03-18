@@ -1,11 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-function Footer() {
+function Footer () {
   return (
+
     <nav className="navbar navbar-light bg-secondary">
-      <a className="navbar-brand text-light" href="#">Footer</a>
+      <div className="container">
+        <a className="navbar-brand text-light" href="#">Footer</a>
+      </div>
     </nav>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

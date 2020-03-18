@@ -3,6 +3,10 @@ import { products } from '../assets/products'
 const initialState = {
   products: products,
   cart: [],
+  shippingDetails: {
+    address: '',
+    address2: ''
+  }
 }
 
 const shop = (state = initialState, action) => {
@@ -47,6 +51,12 @@ const shop = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter(el => el.id !== action.payload)
+      }
+
+    case 'SAVE_SHIPPING_DETAILS':
+      return {
+        ...state,
+        shippingDetails: {...action.payload}
       }
 
     default:

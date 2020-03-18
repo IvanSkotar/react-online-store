@@ -5,6 +5,8 @@ import ItemsList from './ItemsList'
 import Cart from './Cart'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+import ShipingDetails from './ShipingDetails'
+import Checkout from './Checkout'
 
 function App ({ list, itemsInCart, totalSumm }) {
   return (
@@ -24,6 +26,12 @@ function App ({ list, itemsInCart, totalSumm }) {
                 totalSumm={totalSumm}
                 list={list}
               />
+            </Route>
+            <Route path="/shiping-details">
+              <ShipingDetails/>
+            </Route>
+            <Route path="/checkout">
+              <Checkout totalSumm={totalSumm}/>
             </Route>
           </Switch>
         </div>
