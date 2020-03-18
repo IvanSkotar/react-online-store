@@ -12,15 +12,19 @@ function OrderDetails ({ list, totalSumm }) {
       <div>
         <div className='row'>
           <div className='col'>Subtotal:</div>
-          <div className='col'>$ {totalSumm}</div>
+          <div className='col text-right'>$ {totalSumm.toFixed(2)}</div>
+        </div>
+        <div className='row'>
+          <div className='col'>Tax:</div>
+          <div className='col text-right'>$ {(totalSumm * 0.095).toFixed(2)}</div>
         </div>
         <div className='row'>
           <div className='col'>Shipping:</div>
-          <div className='col'>$ {shipping}</div>
+          <div className='col text-right'>$ {shipping.toFixed(2)}</div>
         </div>
-        <div className='row'>
-          <div className='col'>Total:</div>
-          <div className='col'>$ {totalSumm + shipping}</div>
+        <div className='row font-weight-bold text-success'>
+          <div className='col '>Total:</div>
+          <div className='col text-right'>$ {(totalSumm + shipping).toFixed(2)}</div>
         </div>
       </div>
     </div>

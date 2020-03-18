@@ -18,8 +18,8 @@ function CartItem ({ product, countDown, countUp, removeItem }) {
           </div>
         </div>
         <div className="col-md-2 text-right m-3">
-          <div>Price: $ {product.price}</div>
-          <div>Total: $ {product.sum}</div>
+          <div>Price: $ {product.price.toFixed(2)}</div>
+          <div>Total: $ {product.sum.toFixed(2)}</div>
           <div className='mt-3 mb-3'>
             <button className="btn btn-secondary btn-sm mr-2" onClick={() => countDown(product)}> - </button>
             {product.count}
