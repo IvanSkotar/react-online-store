@@ -7,7 +7,7 @@ function Cart ({ list, totalSumm }) {
     <div className='mt-3 mb-3'>
       {list.map(el => <CartItem key={el.id} product={el}/>)}
       <Link to='/shiping-details'>
-        <button className='btn btn-warning ml-5'>Checkout Total: $ {totalSumm.toFixed(2)}</button>
+        <button className='btn btn-warning ml-5'>Checkout Total: $ {totalSumm}</button>
       </Link>
     </div>
   )
