@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/react-online-store/static/js/main.d082ea04.chunk.js",
-    "main.js.map": "/react-online-store/static/js/main.d082ea04.chunk.js.map",
+    "main.js": "/react-online-store/static/js/main.e58843e7.chunk.js",
+    "main.js.map": "/react-online-store/static/js/main.e58843e7.chunk.js.map",
     "runtime-main.js": "/react-online-store/static/js/runtime-main.bd91a193.js",
     "runtime-main.js.map": "/react-online-store/static/js/runtime-main.bd91a193.js.map",
     "static/js/2.6552d633.chunk.js": "/react-online-store/static/js/2.6552d633.chunk.js",
     "static/js/2.6552d633.chunk.js.map": "/react-online-store/static/js/2.6552d633.chunk.js.map",
     "index.html": "/react-online-store/index.html",
-    "precache-manifest.ffdc64fd656d706ddb4274a6e975e5d9.js": "/react-online-store/precache-manifest.ffdc64fd656d706ddb4274a6e975e5d9.js",
+    "precache-manifest.19b0737fca478f7503b9531e4a651548.js": "/react-online-store/precache-manifest.19b0737fca478f7503b9531e4a651548.js",
     "service-worker.js": "/react-online-store/service-worker.js",
     "static/js/2.6552d633.chunk.js.LICENSE.txt": "/react-online-store/static/js/2.6552d633.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bd91a193.js",
     "static/js/2.6552d633.chunk.js",
-    "static/js/main.d082ea04.chunk.js"
+    "static/js/main.e58843e7.chunk.js"
   ]
 }
