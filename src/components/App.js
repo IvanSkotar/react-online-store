@@ -3,7 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ShipingDetails from './ShipingDetails'
 import Checkout from './Checkout'
@@ -13,7 +13,8 @@ function App ({ list, itemsInCart, totalSumm }) {
 
   return (
     <Router>
-      <div className=''>
+      <Redirect exact from="/" to="/products" />
+      <div>
         <Header
           totalSumm={totalSumm}
           itemsInCart={itemsInCart}
