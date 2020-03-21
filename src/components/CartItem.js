@@ -1,8 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { cartItemCountDown, cartItemCountUp, removeItemFromCart } from '../actions/shopActions'
+import StatusMessage from './StatusMessage'
 
-function CartItem ({ product, countDown, countUp, removeItem }) {
+function CartItem ({ product, countDown, countUp, removeItem, setRemoveFromCartMessage }) {
+
+  const removeItemHandle = () => {
+    removeItem(product.id)
+    setRemoveFromCartMessage(<StatusMessage
+      show={'fade show'}
+      color={'danger'}
+      message={<span>${product.title}<b> Removed from card</b></span>}
+    />)
+    setTimeout(() => {setRemoveFromCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
+  }
 
   return (
     <div className="card mb-3">
@@ -25,7 +36,7 @@ function CartItem ({ product, countDown, countUp, removeItem }) {
             {product.count}
             <button className="btn btn-secondary btn-sm ml-2" onClick={() => countUp(product)}> + </button>
           </div>
-          <button className="btn btn-danger btn-sm ml-2" onClick={() => removeItem(product.id)}> Remove </button>
+          <button className="btn btn-danger btn-sm ml-2" onClick={removeItemHandle}> Remove </button>
         </div>
       </div>
     </div>

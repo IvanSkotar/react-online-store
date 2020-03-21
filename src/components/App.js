@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import ItemsList from './ItemsList'
@@ -11,6 +11,8 @@ import Checkout from './Checkout'
 
 function App ({ list, itemsInCart, totalSumm }) {
 
+  const [removeFromCartMessage, setRemoveFromCartMessage] = useState()
+
   return (
     <Router>
       <Redirect exact from="/" to="/products" />
@@ -19,6 +21,7 @@ function App ({ list, itemsInCart, totalSumm }) {
           totalSumm={totalSumm}
           itemsInCart={itemsInCart}
         />
+        {removeFromCartMessage}
         <div className="container">
           <Switch>
             <Route path="/products">
@@ -28,6 +31,7 @@ function App ({ list, itemsInCart, totalSumm }) {
               <Cart
                 totalSumm={totalSumm}
                 list={list}
+                setRemoveFromCartMessage={setRemoveFromCartMessage}
               />
             </Route>
             <Route path="/shiping-details">
