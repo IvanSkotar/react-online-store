@@ -40,8 +40,6 @@ function ShipingDetails ({ saveInfo }) {
     setShippingInfo({...shippingInfo, zip: e.target.value});
   }
 
-  console.log(shippingInfo)
-
   return (
     <form className='mt-3 mb-3'>
       <div className="form-group">
