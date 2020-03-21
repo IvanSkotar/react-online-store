@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions/shopActions'
 import StatusMessage from './StatusMessage'
+import { Link } from 'react-router-dom'
 
 function Item ({ product, addToCart }) {
 
-  const [ mess, setMess ] = useState()
+  const [mess, setMess] = useState()
 
   const addItemHandle = () => {
     addToCart({ ...product, count: 1 })
@@ -19,21 +20,28 @@ function Item ({ product, addToCart }) {
 
   return (
     <div className="col mb-4">
-      <div className="card">
+      <div className="card" style={{ height: '100%' }}>
         {mess}
         <img
           src={product.image}
-          className="card-img-top p-1"
+          className="card-img-top p-2 pt3"
           alt={product.title}/>
         <div className="card-body">
           <h5 className="card-title">{product.title}</h5>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
           <button
-            className="btn btn-secondary mr-5"
+            className="btn btn-warning mr-1"
             onClick={() => addItemHandle()}>
             Add to Cart
           </button>
+          <Link to='/cart'>
+            <button
+              className="btn btn-warning mr-1"
+              onClick={() => addItemHandle()}>
+              By Now
+            </button>
+          </Link>
           <h4 className='d-inline'>
             <span className='badge badge-light'>$ {product.price.toFixed(2)}</span>
           </h4>
