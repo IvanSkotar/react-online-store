@@ -10,7 +10,7 @@ function CartItem ({ product, countDown, countUp, removeItem, setRemoveFromCartM
     setRemoveFromCartMessage(<StatusMessage
       show={'fade show'}
       color={'danger'}
-      message={<span>${product.title}<b> Removed from card</b></span>}
+      message={<span><b>Removed from card: </b> ${product.title}</span>}
     />)
     setTimeout(() => {setRemoveFromCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
   }

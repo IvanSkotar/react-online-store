@@ -12,7 +12,7 @@ function Item ({ product, addToCart }) {
     setMess(<StatusMessage
       show={'fade show'}
       color={'secondary'}
-      message={<span>${product.title}<br/><b>Added to card</b></span>}
+      message={<span><b>Added to card:</b><br/>${product.title}</span>}
     />)
     setTimeout(() => {setMess(<StatusMessage show={'fade'}/>)}, 4000)
   }
