@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions/shopActions'
+import StatusMessage from './StatusMessage'
 
 function Item ({ product, addToCart }) {
+
+  const [ mess, setMess ] = useState()
+
+  const addItemHandle = () => {
+    addToCart({ ...product, count: 1 })
+    setMess(<StatusMessage
+      show={'fade show'}
+      color={'secondary'}
+      message={<span>${product.title}<br/><b>Added to card</b></span>}
+    />)
+    setTimeout(() => {setMess(<StatusMessage show={'fade'}/>)}, 4000)
+  }
+
   return (
     <div className="col mb-4">
       <div className="card">
+        {mess}
         <img
           src={product.image}
           className="card-img-top p-1"
@@ -16,7 +31,7 @@ function Item ({ product, addToCart }) {
             content.</p>
           <button
             className="btn btn-secondary mr-5"
-            onClick={() => {addToCart({ ...product, count: 1 })}}>
+            onClick={() => addItemHandle()}>
             Add to Cart
           </button>
           <h4 className='d-inline'>

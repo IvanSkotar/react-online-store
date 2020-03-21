@@ -3,7 +3,7 @@ import Item from './Item'
 import { connect } from 'react-redux'
 
 
-function ItemsList ({allProducts}) {
+function ItemsList ({ allProducts }) {
 
   return (
     <div className="container">
