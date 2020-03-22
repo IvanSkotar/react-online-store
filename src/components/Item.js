@@ -1,44 +1,44 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { addToCart } from '../actions/shopActions'
 import StatusMessage from './StatusMessage'
 import { Link } from 'react-router-dom'
 
 function Item ({ product, addToCart }) {
 
-  const [mess, setMess] = useState()
+  const [addToCartMessage, setAddToCartMessage] = useState()
 
   const addItemHandle = () => {
     addToCart({ ...product, count: 1 })
-    setMess(<StatusMessage
+    setAddToCartMessage(<StatusMessage
       show={'fade show'}
       color={'secondary'}
       message={<span><b>Added to card:</b><br/>${product.title}</span>}
     />)
-    setTimeout(() => {setMess(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
   }
 
   return (
     <div className="col mb-4">
       <div className="card" style={{ height: '100%' }}>
-        {mess}
+        {addToCartMessage}
         <img
           src={product.image}
           className="card-img-top p-2 pt3"
           alt={product.title}/>
         <div className="card-body">
-          <h5 className="card-title">{product.title}</h5>
+          <Link to={`/product/${product.id}`}>
+            <h5 className="card-title">{product.title}</h5>
+          </Link>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
           <button
             className="btn btn-warning mr-1"
-            onClick={() => addItemHandle()}>
+            onClick={addItemHandle}>
             Add to Cart
           </button>
           <Link to='/cart'>
             <button
               className="btn btn-warning mr-1"
-              onClick={() => addItemHandle()}>
+              onClick={addItemHandle}>
               By Now
             </button>
           </Link>
@@ -51,8 +51,4 @@ function Item ({ product, addToCart }) {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  addToCart: (item) => dispatch(addToCart(item))
-})
-
-export default connect(null, mapDispatchToProps)(Item)
+export default Item

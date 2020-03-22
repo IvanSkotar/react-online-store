@@ -15,7 +15,7 @@ function Header ({ itemsInCart, totalSumm }) {
             alt=""/>
           Mac Store
         </Link>
-        <Link to='/cart' type="button" className="btn btn-default btn-lg text-light">
+        <Link to='/cart' type="button" className="btn btn-outline-light btn-lg">
           {itemsInCart}
           <i className='fab fa-opencart mr-3 ml-3'/>
           $ {totalSumm.toFixed(2)}
