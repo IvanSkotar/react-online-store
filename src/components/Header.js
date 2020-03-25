@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Header ({ itemsInCart, totalSumm }) {
 
   return (
-    <nav className="navbar navbar-light bg-secondary">
+    <nav className="navbar navbar-light bg-secondary sticky-top">
       <div className="container">
         <Link to='/products' className="navbar-brand text-light" href="#">
           <img
