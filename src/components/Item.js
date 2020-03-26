@@ -28,8 +28,6 @@ function Item ({ product, addToCart }) {
           <Link to={`/product/${product.id}`}>
             <h5 className="card-title">{product.title}</h5>
           </Link>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
           <button
             className="btn btn-warning mr-1"
             onClick={addItemHandle}>
