@@ -10,6 +10,8 @@ import Checkout from './Checkout'
 import ItemPage from './ItemPage'
 import { addItemToWatchList, addToCart } from '../actions/shopActions'
 import WatchList from './WatchList'
+import { baseURL } from '../assets/constants'
+
 
 function App ({
                 cartList,
@@ -24,37 +26,36 @@ function App ({
   const [addToCartMessage, setAddToCartMessage] = useState()
 
   return (
-    <Router>
-      <Redirect exact from="/" to="/products"/>
+    <Router basename={baseURL}>
       <div>
         <Header totalSumm={totalSumm} itemsInCart={itemsInCart}/>
         {removeFromCartMessage}
         {addToCartMessage}
         <div className="container">
           <Switch>
-            <Route path="/products"
+            <Route exact path='/'
                    render={() =>
                      <ItemsList allProducts={allProducts}
                                 addToCart={addToCart}/>}/>
-            <Route path="/cart">
+            <Route path='/cart'>
               <Cart totalSumm={totalSumm}
                     list={cartList}
                     setRemoveFromCartMessage={setRemoveFromCartMessage}
               />
             </Route>
-            <Route path="/shiping-details"
+            <Route path='/shiping-details'
                    component={ShipingDetails}/>
-            <Route path="/checkout">
+            <Route path='/checkout'>
               <Checkout totalSumm={totalSumm}/>
             </Route>
-            <Route path="/product/:id"
+            <Route path='/product/:id'
                    render={({ match }) =>
                      <ItemPage product={allProducts[match.params.id - 1]}
                                addToCart={addToCart}
                                addToWatchList={addToWatchList}
                                setAddToCartMessage={setAddToCartMessage}/>}>
             </Route>
-            <Route path="/watchlist">
+            <Route path='/watchlist'>
               <WatchList/>
             </Route>
           </Switch>
