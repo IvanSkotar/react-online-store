@@ -8,9 +8,17 @@ import { connect } from 'react-redux'
 import ShipingDetails from './ShipingDetails'
 import Checkout from './Checkout'
 import ItemPage from './ItemPage'
-import { addToCart } from '../actions/shopActions'
+import { addItemToWatchList, addToCart } from '../actions/shopActions'
+import WatchList from './WatchList'
 
-function App ({ cartList, itemsInCart, totalSumm, allProducts, addToCart }) {
+function App ({
+                cartList,
+                itemsInCart,
+                totalSumm,
+                allProducts,
+                addToCart,
+                addToWatchList
+}) {
 
   const [removeFromCartMessage, setRemoveFromCartMessage] = useState()
   const [addToCartMessage, setAddToCartMessage] = useState()
@@ -24,18 +32,30 @@ function App ({ cartList, itemsInCart, totalSumm, allProducts, addToCart }) {
         {addToCartMessage}
         <div className="container">
           <Switch>
-            <Route path="/products" render={() => <ItemsList allProducts={allProducts} addToCart={addToCart}/>}/>
+            <Route path="/products"
+                   render={() =>
+                     <ItemsList allProducts={allProducts}
+                                addToCart={addToCart}/>}/>
             <Route path="/cart">
-              <Cart totalSumm={totalSumm} list={cartList} setRemoveFromCartMessage={setRemoveFromCartMessage}
+              <Cart totalSumm={totalSumm}
+                    list={cartList}
+                    setRemoveFromCartMessage={setRemoveFromCartMessage}
               />
             </Route>
-            <Route path="/shiping-details" component={ShipingDetails}/>
+            <Route path="/shiping-details"
+                   component={ShipingDetails}/>
             <Route path="/checkout">
               <Checkout totalSumm={totalSumm}/>
             </Route>
-            <Route path="/product/:id" render={({ match }) =>
-              <ItemPage product={allProducts[match.params.id - 1]} addToCart={addToCart}
-                        setAddToCartMessage={setAddToCartMessage}/>}>
+            <Route path="/product/:id"
+                   render={({ match }) =>
+                     <ItemPage product={allProducts[match.params.id - 1]}
+                               addToCart={addToCart}
+                               addToWatchList={addToWatchList}
+                               setAddToCartMessage={setAddToCartMessage}/>}>
+            </Route>
+            <Route path="/watchlist">
+              <WatchList/>
             </Route>
           </Switch>
         </div>
@@ -61,7 +81,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addToCart: (item) => dispatch(addToCart(item))
+  addToCart: (item) => dispatch(addToCart(item)),
+  addToWatchList: (item) => dispatch(addItemToWatchList(item))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

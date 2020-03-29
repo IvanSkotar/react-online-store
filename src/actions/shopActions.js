@@ -22,3 +22,13 @@ export const saveShippingDetails = (info) => ({
   type: 'SAVE_SHIPPING_DETAILS',
   payload: info
 })
+
+export const addItemToWatchList = (item) => ({
+  type: 'ADD_ITEM_TO_WATCHLIST',
+  payload: item
+})
+
+export const removeItemFromWatchList = (id) => ({
+  type: 'REMOVE_ITEM_FROM_WATCHLIST',
+  payload: id
+})

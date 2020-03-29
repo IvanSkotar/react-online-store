@@ -2,7 +2,12 @@ import React from 'react'
 import StatusMessage from './StatusMessage'
 import { Link } from 'react-router-dom'
 
-function ItemPage ({ product, addToCart, setAddToCartMessage }) {
+function ItemPage ({
+                     product,
+                     addToCart,
+                     addToWatchList,
+                     setAddToCartMessage
+}) {
 
   const addItemHandle = () => {
     addToCart({ ...product, count: 1 })
@@ -31,7 +36,7 @@ function ItemPage ({ product, addToCart, setAddToCartMessage }) {
         <Link to='/cart'>
           <button className='btn btn-warning mr-3' onClick={addItemHandle}>Buy it Now</button>
         </Link>
-        <button className='btn btn-info' disabled title="COMING SOON...">Add to Watchlist</button>
+        <button className='btn btn-info' onClick={() => addToWatchList(product)}>Add to Watchlist</button>
       </div>
     </div>
   )

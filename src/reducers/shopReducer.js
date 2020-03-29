@@ -3,6 +3,7 @@ import { products } from '../assets/products'
 const initialState = {
   products: products,
   cart: [],
+  watchList: [],
   shippingDetails: {
     address: '',
     address2: ''
@@ -56,7 +57,25 @@ const shop = (state = initialState, action) => {
     case 'SAVE_SHIPPING_DETAILS':
       return {
         ...state,
-        shippingDetails: {...action.payload}
+        shippingDetails: { ...action.payload }
+      }
+
+    case 'ADD_ITEM_TO_WATCHLIST':
+      return {
+        ...state,
+        watchList: (() => {
+          const exist = state.watchList.filter(el => el.id === action.payload.id)
+          if (exist.length > 0) {
+            return state.watchList.map(el => el)
+          }
+          return [...state.watchList, { ...action.payload }]
+        })()
+      }
+
+    case 'REMOVE_ITEM_FROM_WATCHLIST':
+      return {
+        ...state,
+        watchList: state.watchList.filter(el => el.id !== action.payload)
       }
 
     default:
