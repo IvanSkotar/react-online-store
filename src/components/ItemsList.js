@@ -4,7 +4,6 @@ import Item from './Item'
 function ItemsList ({ allProducts, addToCart }) {
 
   return (
-    <div className="container">
       <div className="row row-cols-3 row-cols-md-3 mt-4">
         {allProducts.map(el =>
           <Item
@@ -12,7 +11,6 @@ function ItemsList ({ allProducts, addToCart }) {
             product={el}
             addToCart={addToCart}/>)}
       </div>
-    </div>
   )
 }
 
