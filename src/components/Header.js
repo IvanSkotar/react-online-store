@@ -6,7 +6,7 @@ function Header ({ itemsInCart, totalSumm }) {
   return (
     <nav className="navbar navbar-light bg-secondary sticky-top">
       <div className="container">
-        <Link to='/products' className="navbar-brand text-light">
+        <Link to='/' className="navbar-brand text-light">
           <img
             src="https://www.iconninja.com/files/363/808/983/apple-icon.png"
             width="30"
