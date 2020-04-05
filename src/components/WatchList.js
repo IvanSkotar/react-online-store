@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import WatchListItem from './WatchListItem'
 
-function WatchList ({ list }) {
+function WatchList ({ list, setRemoveMessage }) {
 
   if (!list.length) {
     return (
@@ -14,7 +14,7 @@ function WatchList ({ list }) {
 
   return (
     <div className='mt-3 mb-3'>
-      {list.map(el => <WatchListItem key={el.id} product={el}/>)}
+      {list.map(el => <WatchListItem key={el.id} product={el} setRemoveMessage={setRemoveMessage}/>)}
     </div>
   )
 }

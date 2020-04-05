@@ -3,14 +3,14 @@ import Header from './Header'
 import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ShipingDetails from './ShipingDetails'
 import Checkout from './Checkout'
 import ItemPage from './ItemPage'
 import { addItemToWatchList, addToCart } from '../actions/shopActions'
 import WatchList from './WatchList'
-import { baseURL } from '../assets/constants'
+import { BASE_URL } from '../assets/constants'
 
 
 function App ({
@@ -22,15 +22,15 @@ function App ({
                 addToWatchList
 }) {
 
-  const [removeFromCartMessage, setRemoveFromCartMessage] = useState()
-  const [addToCartMessage, setAddToCartMessage] = useState()
+  const [removeMessage, setRemoveMessage] = useState()
+  const [addMessage, setAddMessage] = useState()
 
   return (
-    <Router basename={baseURL}>
+    <Router basename={BASE_URL}>
       <div>
         <Header totalSumm={totalSumm} itemsInCart={itemsInCart}/>
-        {removeFromCartMessage}
-        {addToCartMessage}
+        {removeMessage}
+        {addMessage}
         <div className="container">
           <Switch>
             <Route exact path='/'
@@ -40,7 +40,7 @@ function App ({
             <Route path='/cart'>
               <Cart totalSumm={totalSumm}
                     list={cartList}
-                    setRemoveFromCartMessage={setRemoveFromCartMessage}
+                    setRemoveMessage={setRemoveMessage}
               />
             </Route>
             <Route path='/shiping-details'
@@ -53,10 +53,10 @@ function App ({
                      <ItemPage product={allProducts[match.params.id - 1]}
                                addToCart={addToCart}
                                addToWatchList={addToWatchList}
-                               setAddToCartMessage={setAddToCartMessage}/>}>
+                               setAddMessage={setAddMessage}/>}>
             </Route>
             <Route path='/watchlist'>
-              <WatchList/>
+              <WatchList setRemoveMessage={setRemoveMessage}/>
             </Route>
           </Switch>
         </div>
@@ -87,6 +87,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-
-

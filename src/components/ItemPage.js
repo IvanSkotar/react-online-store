@@ -6,17 +6,29 @@ function ItemPage ({
                      product,
                      addToCart,
                      addToWatchList,
-                     setAddToCartMessage
-}) {
+                     setAddMessage
+                   }) {
 
-  const addItemHandle = () => {
+  const addToCartHandle = () => {
     addToCart({ ...product, count: 1 })
-    setAddToCartMessage(<StatusMessage
-      show={'fade show'}
-      color={'secondary'}
-      message={<span><b>Added to card:</b><br/>${product.title}</span>}
-    />)
-    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setAddMessage(
+      <StatusMessage
+        show={'fade show'}
+        color={'secondary'}
+        message={<span><b>Added to card:</b><br/>${product.title}</span>}
+      />)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 4000)
+  }
+
+  const addToWatchListHandle = () => {
+    addToWatchList(product)
+    setAddMessage(
+      <StatusMessage
+        show={'fade show'}
+        color={'info'}
+        message={<span><b>Added to Watch List:</b><br/>${product.title}</span>}
+      />)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 4000)
   }
 
   return (
@@ -32,11 +44,11 @@ function ItemPage ({
         </p>
         <hr/>
         <h3 className='text-right'>$ {product.price}</h3>
-        <button className='btn btn-warning mr-3' onClick={addItemHandle}>Add to Cart</button>
+        <button className='btn btn-warning mr-3' onClick={addToCartHandle}>Add to Cart</button>
         <Link to='/cart'>
-          <button className='btn btn-warning mr-3' onClick={addItemHandle}>Buy it Now</button>
+          <button className='btn btn-warning mr-3' onClick={addToCartHandle}>Buy it Now</button>
         </Link>
-        <button className='btn btn-info' onClick={() => addToWatchList(product)}>Add to Watchlist</button>
+        <button className='btn btn-info' onClick={addToWatchListHandle}>Add to Watchlist</button>
       </div>
     </div>
   )

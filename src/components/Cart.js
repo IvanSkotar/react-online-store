@@ -2,7 +2,7 @@ import React from 'react'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
 
-function Cart ({ list, totalSumm, setRemoveFromCartMessage }) {
+function Cart ({ list, totalSumm, setRemoveMessage }) {
 
   if (!list.length) {
     return (
@@ -14,7 +14,7 @@ function Cart ({ list, totalSumm, setRemoveFromCartMessage }) {
 
   return (
     <div className='mt-3 mb-3'>
-      {list.map(el => <CartItem key={el.id} product={el} setRemoveFromCartMessage={setRemoveFromCartMessage}/>)}
+      {list.map(el => <CartItem key={el.id} product={el} setRemoveMessage={setRemoveMessage}/>)}
       <Link to='/shiping-details'>
         <button className='btn btn-warning ml-5'>Checkout Total: $ {totalSumm.toFixed(2)}</button>
       </Link>

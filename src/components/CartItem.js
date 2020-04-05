@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 import { cartItemCountDown, cartItemCountUp, removeItemFromCart } from '../actions/shopActions'
 import StatusMessage from './StatusMessage'
 
-function CartItem ({ product, countDown, countUp, removeItem, setRemoveFromCartMessage }) {
+function CartItem ({ product, countDown, countUp, removeItem, setRemoveMessage }) {
 
   const removeItemHandle = () => {
     removeItem(product.id)
-    setRemoveFromCartMessage(<StatusMessage
+    setRemoveMessage(<StatusMessage
       show={'fade show'}
       color={'danger'}
       message={<span><b>Removed from card: </b> ${product.title}</span>}
     />)
-    setTimeout(() => {setRemoveFromCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, 4000)
   }
 
   return (
