@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Header from './Header'
-import Footer from './Footer'
 import ItemsList from './ItemsList'
 import Cart from './Cart'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -60,7 +59,6 @@ function App ({
             </Route>
           </Switch>
         </div>
-        <Footer/>
       </div>
     </Router>
   )
