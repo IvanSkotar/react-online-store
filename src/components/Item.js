@@ -13,7 +13,7 @@ function Item ({ product, addToCart }) {
       color={'secondary'}
       message={<span><b>Added to card:</b><br/>${product.title}</span>}
     />)
-    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, 3000)
   }
 
   return (

@@ -17,7 +17,7 @@ function ItemPage ({
         color={'secondary'}
         message={<span><b>Added to card:</b><br/>${product.title}</span>}
       />)
-    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 3000)
   }
 
   const addToWatchListHandle = () => {
@@ -28,7 +28,7 @@ function ItemPage ({
         color={'info'}
         message={<span><b>Added to Watch List:</b><br/>${product.title}</span>}
       />)
-    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 3000)
   }
 
   return (

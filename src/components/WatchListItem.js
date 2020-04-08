@@ -13,7 +13,7 @@ function WatchListItem ({ product, removeItem, setRemoveMessage }) {
       color={'danger'}
       message={<span><b>Removed from Watch List: </b> ${product.title}</span>}
     />)
-    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, 4000)
+    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, 3000)
   }
 
   return (
@@ -29,9 +29,9 @@ function WatchListItem ({ product, removeItem, setRemoveMessage }) {
             </Link>
           </div>
         </div>
-        <div className="col-md-1.5 text-right m-3">
-          <div>Price: $ {product.price.toFixed(2)}</div>
-          <button className="btn btn-danger btn-sm ml-2" onClick={removeItemHandle}> Remove </button>
+        <div className="col text-right m-2 mr-4">
+          <div>$ {product.price.toFixed(2)}</div>
+          <button className="btn btn-danger btn-sm mt-2" onClick={removeItemHandle}> Remove </button>
         </div>
       </div>
     </div>
