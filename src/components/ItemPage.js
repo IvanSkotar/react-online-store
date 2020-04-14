@@ -3,11 +3,11 @@ import StatusMessage from './StatusMessage'
 import { Link } from 'react-router-dom'
 
 function ItemPage ({
-                     product,
-                     addToCart,
-                     addToWatchList,
-                     setAddMessage
-                   }) {
+  product,
+  addToCart,
+  addToWatchList,
+  setAddMessage
+}) {
 
   const addToCartHandle = () => {
     addToCart({ ...product, count: 1 })

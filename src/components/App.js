@@ -13,12 +13,12 @@ import { BASE_URL } from '../assets/constants'
 
 
 function App ({
-                cartList,
-                itemsInCart,
-                totalSumm,
-                allProducts,
-                addToCart,
-                addToWatchList
+  cartList,
+  itemsInCart,
+  totalSumm,
+  allProducts,
+  addToCart,
+  addToWatchList
 }) {
 
   const [removeMessage, setRemoveMessage] = useState()
