@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import StatusMessage from './StatusMessage'
 import { Link } from 'react-router-dom'
+import { STATUS_MESSAGE_TIMEOUT } from '../assets/constants'
 
 function Item ({ product, addToCart }) {
 
@@ -13,7 +14,7 @@ function Item ({ product, addToCart }) {
       color={'secondary'}
       message={<span><b>Added to card:</b><br/>${product.title}</span>}
     />)
-    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, 3000)
+    setTimeout(() => {setAddToCartMessage(<StatusMessage show={'fade'}/>)}, STATUS_MESSAGE_TIMEOUT)
   }
 
   return (

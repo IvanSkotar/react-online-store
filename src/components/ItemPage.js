@@ -1,6 +1,7 @@
 import React from 'react'
 import StatusMessage from './StatusMessage'
 import { Link } from 'react-router-dom'
+import { STATUS_MESSAGE_TIMEOUT } from '../assets/constants'
 
 function ItemPage ({
   product,
@@ -17,7 +18,7 @@ function ItemPage ({
         color={'secondary'}
         message={<span><b>Added to card:</b><br/>${product.title}</span>}
       />)
-    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 3000)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, STATUS_MESSAGE_TIMEOUT)
   }
 
   const addToWatchListHandle = () => {
@@ -28,7 +29,7 @@ function ItemPage ({
         color={'info'}
         message={<span><b>Added to Watch List:</b><br/>${product.title}</span>}
       />)
-    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, 3000)
+    setTimeout(() => {setAddMessage(<StatusMessage show={'fade'}/>)}, STATUS_MESSAGE_TIMEOUT)
   }
 
   return (

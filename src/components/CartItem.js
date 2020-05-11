@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { cartItemCountDown, cartItemCountUp, removeItemFromCart } from '../actions/shopActions'
 import StatusMessage from './StatusMessage'
+import { STATUS_MESSAGE_TIMEOUT } from '../assets/constants'
 
 function CartItem ({ product, countDown, countUp, removeItem, setRemoveMessage }) {
 
@@ -12,7 +13,7 @@ function CartItem ({ product, countDown, countUp, removeItem, setRemoveMessage }
       color={'danger'}
       message={<span><b>Removed from card: </b> ${product.title}</span>}
     />)
-    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, 3000)
+    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, STATUS_MESSAGE_TIMEOUT)
   }
 
   return (

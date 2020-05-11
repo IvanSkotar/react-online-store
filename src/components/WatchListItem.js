@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { removeItemFromWatchList } from '../actions/shopActions'
 import { Link } from 'react-router-dom'
 import StatusMessage from './StatusMessage'
+import { STATUS_MESSAGE_TIMEOUT } from '../assets/constants'
 
 function WatchListItem ({ product, removeItem, setRemoveMessage }) {
 
@@ -13,7 +14,7 @@ function WatchListItem ({ product, removeItem, setRemoveMessage }) {
       color={'danger'}
       message={<span><b>Removed from Watch List: </b> ${product.title}</span>}
     />)
-    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, 3000)
+    setTimeout(() => {setRemoveMessage(<StatusMessage show={'fade'}/>)}, STATUS_MESSAGE_TIMEOUT)
   }
 
   return (
